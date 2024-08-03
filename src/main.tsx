@@ -19,16 +19,13 @@ function Graph() {
  * Ring for a continent
  */
 function Ring({name, gold, silver, bronze, total, index, min, max}: Continent & {index: number, min: number, max: number}) {
-    const [ratio, setRatio] = useState(0)
+    const ratio = (total - min) / (max - min)
     const style = {
         gridColumnStart: Math.floor(index / 2) + 1,
         '--index': index,
         '--ratio': ratio
     }
-    useEffect(() => {
-            setRatio((total - min) / (max - min))
-    }, [])
-    const count = useIncrementalNumber(total)
+    const count = useIncrementalNumber(total, 700, 1000)
     return <article className="continent" style={style}>
         <header>
             <h2>{name}: <strong>{count}</strong></h2>

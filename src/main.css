@@ -7,7 +7,13 @@ html, body {
 }
 
 body {
-    background: url(./images/poster.avif) center center no-repeat #FFF;
+    overflow: hidden;
+    background:
+            linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.65)
+            ),
+            url(./images/poster.avif) center center no-repeat #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,11 +22,14 @@ body {
 
 h1 {
     font-size: 2rem;
-    margin-bottom: 5.3rem;
 }
 
 p {
     color: #666763;
+}
+
+a {
+    text-decoration: underline;
 }
 
 footer {
@@ -30,16 +39,25 @@ footer {
 }
 
 .card {
-    background-color: #fff;
-    padding-block: max(1rem, 8vh);
+    background: url(./images/paris-horizon.jpg) left bottom no-repeat #FFF;
     width: calc(100vw - 180px);
     max-width: 1440px;
-    min-width: 1000px;
+    min-width: 1200px;
+    height: calc(100vh - 180px);
     max-height: 950px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* https://shadows.brumm.af/ */
+    box-shadow:
+            0px 0px 1.3px rgba(0, 0, 0, 0.024),
+            0px 0px 3.6px rgba(0, 0, 0, 0.035),
+            0px 0px 8.7px rgba(0, 0, 0, 0.046),
+            0px 0px 29px rgba(0, 0, 0, 0.07)
+    ;
 }
 
 .methodology {
-    margin-top: 5.3rem;
     font-size: .8em;
 }
 
@@ -155,10 +173,8 @@ footer {
     position: relative;
 }
 
-.ring__l,
-.ring__r,
-.ring__b,
-.ring__t {
+.ring::before,
+.ring::after {
     content: '';
     display: block;
     position: absolute;
@@ -167,23 +183,8 @@ footer {
     height: 100%;
     border-radius: 100%;
     color: var(--color);
-    border: calc(2px + var(--stroke) * var(--ratio) * 1.5) solid transparent;
-}
-
-.ring__l {
-    border-left-color: currentColor;
-}
-
-.ring__r {
-    border-right-color: currentColor;
-}
-
-.ring__b {
-    border-bottom-color: currentColor;
-}
-
-.ring__t {
-    border-top-color: currentColor;
+    border: calc(2px + var(--stroke) * var(--ratio) * 1.5) solid var(--color);
+    animation: border 1s;
 }
 
 .ring::after {
@@ -191,57 +192,67 @@ footer {
 }
 
 /* Chain overlap */
-.continent:nth-child(1) .ring__r {
-    z-index: 3;
+.continent:nth-child(1) .ring::after {
+    border-right-color: var(--color);
+    z-index: 6;
 }
-.continent:nth-child(2) .ring__t {
-    z-index: 2;
+
+.continent:nth-child(2) .ring::after {
+    border-top-color: var(--color);
+    z-index: 5;
 }
-.continent:nth-child(3) .ring__b,
-.continent:nth-child(3) .ring__r
-{
-    z-index: 3;
-}
-.continent:nth-child(4) .ring__t
-{
-    z-index: 2;
-}
-.continent:nth-child(4) .ring__l {
+
+.continent:nth-child(3) .ring::before {
+    border-top-color: var(--color);
     z-index: 4;
 }
-.continent:nth-child(5) .ring__l {
-    z-index: 1;
+
+.continent:nth-child(4) .ring::before {
+    z-index: 2;
 }
 
-/* Animations */
-.continent {
-    --animation: slideInFromTop;
-    .ring > * {
-        animation: var(--animation) .5s ease-out calc(.1s * var(--index)) both;
-    }
+.continent:nth-child(4) .ring::after {
+    border-left-color: var(--color);
+    z-index: 5;
 }
 
-.continent:nth-child(2),
-.continent:nth-child(4) {
-    --animation: slideInFromBottom ;
+.continent:nth-child(5) .ring::after {
+    border-bottom-color: var(--color);
+    z-index: 6;
 }
 
-@keyframes slideInFromTop {
-    from {
+/* Animation */
+.card {
+    animation: cardIn .7s both ease-out;
+}
+@keyframes cardIn {
+    0% {
         opacity: 0;
-        transform: scale(.5) translateY(-100px);
-    }
-    to {
-        transform: none
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
     }
 }
 
-@keyframes slideInFromBottom {
-    from {
+.card > * {
+    animation: cardContentIn 1s both cubic-bezier(.49,1.67,.26,.92);
+    animation-delay: calc(.4s + .2s * var(--index, 0));
+}
+
+@keyframes cardContentIn {
+    0% {
+        transform: translateY(80px);
         opacity: 0;
-        transform:scale(.5)  translateY(100px);
     }
-    to {
-        transform: none
+}
+
+.ring::before,
+.ring::after {
+    animation: ringStroke .7s 1s ease-out both;
+}
+
+@keyframes ringStroke {
+    0% {
+        border: calc(2px + var(--stroke) * 1) solid var(--color);
     }
 }
