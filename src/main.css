@@ -11,6 +11,10 @@
     --ring5: #F0282D;
 }
 
+.cloak {
+    visibility: hidden;
+}
+
 html, body {
     font-family: "Manrope", sans-serif;
     min-height: 100vh;
@@ -25,7 +29,7 @@ body {
                     rgba(0, 0, 0, .65),
                     rgba(0, 0, 0, .65)
             ),
-            url(./images/poster.avif) center center / cover no-repeat,
+            url(./images/poster.jpg) center center / cover no-repeat,
             linear-gradient(135deg,#9bc8c5, #f6ead2,#a2deaa);
     display: flex;
     align-items: center;
@@ -331,7 +335,7 @@ aside {
                         rgba(0, 0, 0, .65),
                         rgba(0, 0, 0, .65)
                 ),
-                url(./images/poster-mobile.avif) center center / cover no-repeat,
+                url(./images/poster-mobile.jpg) center center / cover no-repeat,
                 linear-gradient(135deg,#9bc8c5, #f6ead2,#a2deaa);
     }
     .card {

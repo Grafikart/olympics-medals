@@ -19,7 +19,6 @@ function Graph() {
           {...continent}
           key={continent.name}
           index={k}
-          min={Math.min(...totals)}
           max={Math.max(...totals)}
         />
       ))}
@@ -37,14 +36,12 @@ function Ring({
   bronze,
   total,
   index,
-  min,
   max,
 }: Continent & {
   index: number;
-  min: number;
   max: number;
 }) {
-  const ratio = (total - min) / (max - min);
+  const ratio = total / max;
   const style = {
     gridColumnStart: Math.floor(index / 2) + 1,
     "--index": index,
@@ -69,6 +66,9 @@ function Ring({
   );
 }
 
+/**
+ * Small medal displayed under the continent title
+ */
 function Medal({ type, count }: { type: string; count: number }) {
   const animatedCount = useIncrementalNumber(count, 700, 1000);
   return (
@@ -79,3 +79,6 @@ function Medal({ type, count }: { type: string; count: number }) {
 }
 
 render(<Graph />, document.getElementById("graph")!);
+document
+  .querySelectorAll(".cloak")
+  .forEach((el) => el.classList.remove("cloak"));
