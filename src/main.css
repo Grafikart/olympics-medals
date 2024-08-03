@@ -7,8 +7,7 @@ html, body {
 }
 
 body {
-    /* background: url(/ref.png) center center no-repeat #FFF; */
-    background-color: #fff;
+    background: url(./images/poster.avif) center center no-repeat #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,6 +29,15 @@ footer {
     gap: 1rem;
 }
 
+.card {
+    background-color: #fff;
+    padding-block: max(1rem, 8vh);
+    width: calc(100vw - 180px);
+    max-width: 1440px;
+    min-width: 1000px;
+    max-height: 950px;
+}
+
 .methodology {
     margin-top: 5.3rem;
     font-size: .8em;
@@ -44,6 +52,7 @@ footer {
 }
 
 .continent {
+    width: calc(12 * var(--stroke));
     display: flex;
     flex-direction: column;
     grid-row: 1/ span 1;
@@ -83,13 +92,17 @@ footer {
 .continent:nth-child(2),
 .continent:nth-child(4){
     margin-top: calc(var(--header-offset) + 5.5 * var(--stroke));
-    transform: translateX(calc(50% + 0.5 * var(--stroke)));
+    margin-left: calc(6.5 * var(--stroke));
     flex-direction: column-reverse;
 }
 
 .continent h2 {
     color: var(--color);
     font-size: 1.4rem;
+}
+
+.continent strong {
+    font-weight: bold;
 }
 
 .continent ul {
@@ -139,5 +152,96 @@ footer {
     height: auto;
     aspect-ratio: 1;
     border-radius: 100%;
-    border: var(--stroke) solid var(--color);
+    position: relative;
+}
+
+.ring__l,
+.ring__r,
+.ring__b,
+.ring__t {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    color: var(--color);
+    border: calc(2px + var(--stroke) * var(--ratio) * 1.5) solid transparent;
+}
+
+.ring__l {
+    border-left-color: currentColor;
+}
+
+.ring__r {
+    border-right-color: currentColor;
+}
+
+.ring__b {
+    border-bottom-color: currentColor;
+}
+
+.ring__t {
+    border-top-color: currentColor;
+}
+
+.ring::after {
+    border-color: transparent;
+}
+
+/* Chain overlap */
+.continent:nth-child(1) .ring__r {
+    z-index: 3;
+}
+.continent:nth-child(2) .ring__t {
+    z-index: 2;
+}
+.continent:nth-child(3) .ring__b,
+.continent:nth-child(3) .ring__r
+{
+    z-index: 3;
+}
+.continent:nth-child(4) .ring__t
+{
+    z-index: 2;
+}
+.continent:nth-child(4) .ring__l {
+    z-index: 4;
+}
+.continent:nth-child(5) .ring__l {
+    z-index: 1;
+}
+
+/* Animations */
+.continent {
+    --animation: slideInFromTop;
+    .ring > * {
+        animation: var(--animation) .5s ease-out calc(.1s * var(--index)) both;
+    }
+}
+
+.continent:nth-child(2),
+.continent:nth-child(4) {
+    --animation: slideInFromBottom ;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: scale(.5) translateY(-100px);
+    }
+    to {
+        transform: none
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform:scale(.5)  translateY(100px);
+    }
+    to {
+        transform: none
+    }
 }
