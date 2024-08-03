@@ -25,7 +25,8 @@ body {
                     rgba(0, 0, 0, .65),
                     rgba(0, 0, 0, .65)
             ),
-            url(./images/poster.avif) center center / cover no-repeat;
+            url(./images/poster.avif) center center / cover no-repeat,
+            linear-gradient(135deg,#9bc8c5, #f6ead2,#a2deaa);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -299,8 +300,14 @@ aside {
     }
 }
 
+@media (max-height: 700px) {
+    :root {
+        --stroke: 1rem;
+    }
+}
+
 /* Screen is too narrow, we need a scrollbar */
-@media (max-height: 550px) {
+@media (max-height: 600px) {
     body {
         overflow-y: scroll;
     }
@@ -316,9 +323,21 @@ aside {
     :root {
         --stroke: min(calc((100vw - 4rem) / 12), 1.2rem);
     }
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+        background:
+                linear-gradient(
+                        rgba(0, 0, 0, .65),
+                        rgba(0, 0, 0, .65)
+                ),
+                url(./images/poster-mobile.avif) center center / cover no-repeat,
+                linear-gradient(135deg,#9bc8c5, #f6ead2,#a2deaa);
+    }
     .card {
         gap: 3rem;
         padding: 0;
+        margin-block: 1rem;
         padding-block: 2rem;
         max-height: none;
         height: auto;

@@ -1,24 +1,24 @@
 [
   {
     "name": "Europe",
-    "gold": 54,
-    "bronze": 53,
-    "silver": 66,
-    "total": 173
+    "gold": 55,
+    "bronze": 54,
+    "silver": 68,
+    "total": 177
   },
   {
     "name": "Asia",
-    "gold": 36,
-    "bronze": 28,
-    "silver": 33,
-    "total": 97
+    "gold": 38,
+    "bronze": 30,
+    "silver": 35,
+    "total": 103
   },
   {
     "name": "America",
-    "gold": 16,
-    "bronze": 27,
-    "silver": 28,
-    "total": 71
+    "gold": 17,
+    "bronze": 28,
+    "silver": 29,
+    "total": 74
   },
   {
     "name": "Oceania",
