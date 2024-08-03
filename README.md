@@ -22,7 +22,12 @@ pnpm run fetch
 Vu que le projet est petit, j'ai essayé d'utiliser peu de librairies / outils pour avoir quelque chose de léger et facile à lancer.
 
 - Preact, alternative légère à React, pour gérer les anneaux olympique (la flemme de manipuler le DOM à la main)
-- NodeJS & JSDOM, pour parser une page HTML et générer le JSON des médailles (pas trouvé d'API, pour cet exercice je m'autorise à scrapper un site)
+- NodeJS & JSDOM, pour parser une page HTML et générer le JSON des médailles (pas trouvé d'API, pour cet exercice je m'autorise donc à scrapper un site)
+
+Côté CSS, j'ai décidé de faire les anneaux en utilisant des divs pour faire des cercles. Les guidelines sont très précises sur les dimensions ce qui permet le pilotage de la taille des anneaux avec une seule variable CSS.
+
+- Un anneau doit avoir un diamètre extérieur qui est 12 fois la taille de la bordure (donc diamètre intérieur = 10 x bordure).
+- Les anneaux sont espacés d'une fois la taille de la bordure (la largeur total est donc de 38 fois la bordure).
 
 ## Sources & Outils
 
