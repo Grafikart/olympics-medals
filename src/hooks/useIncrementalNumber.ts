@@ -5,7 +5,7 @@ import {useSignal} from "@preact/signals";
  * Make a number increment over time
  */
 export function useIncrementalNumber (n: number, duration: number = 1000, delay: number = 0) {
-    const start = useMemo(() => Date.now())
+    const start = useMemo(() => Date.now(), [])
     const count = useSignal(0)
 
    useEffect(() => {
