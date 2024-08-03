@@ -292,33 +292,10 @@ aside {
     }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 950px) {
     :root {
-        --stroke: 1.3rem;
-    }
-}
-
-@media (max-width: 980px) {
-    :root {
-        --stroke: 1.1rem;
-    }
-}
-
-@media (max-width: 840px) {
-    :root {
-        --stroke: 1rem;
-    }
-}
-
-@media (max-width: 720px) {
-    :root {
-        --stroke: .9rem;
-    }
-}
-
-@media (max-height: 700px) {
-    :root {
-        --stroke: 1rem;
+        /* Why 38 ? graph width = (12 * stroke) * 3 + 2 */
+        --stroke: calc((100vw - 6rem) / 38);
     }
 }
 
