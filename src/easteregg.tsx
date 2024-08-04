@@ -1,6 +1,6 @@
 import './mascots.css'
 import {render} from "preact";
-import {useRef, useEffect} from "preact/hooks";
+import {useEffect, useRef} from "preact/hooks";
 import {useWindowWidth} from "./hooks/useWindowWidth.ts";
 import {randomBetween} from "./functions/number.ts";
 import confetti from 'canvas-confetti'
@@ -36,11 +36,28 @@ export function callMascots (source: HTMLElement) {
 
 function Mascots({color}: { color: string }) {
     return <>
-        {Array.from({length: 10}).map((_, k) => <Mascot index={k} key={k} color={color}/>)}
+        {Array.from({length: 11}).map((_, k) => <Mascot index={k} key={k} color={color}/>)}
     </>
 }
 
-function Mascot({index, color}: { index: number, color: string }) {
+/**
+ * Rule to have better control on the mascots distribution
+ * - 1 megaphone
+ * - 2 confetti
+ * - 3/4 big hands
+ * - 1/4 jumping
+ */
+function getMascot (index: number): number {
+    if (index === 9) {
+        return 3
+    }
+    if (index % 5 === 0) {
+        return 2
+    }
+    return index % 4 > 0 ? 0 : 1
+}
+
+function Mascot({color, index}: { index: number, color: string }) {
     const width = useWindowWidth()
     const style = {
         '--walk-duration': width.value / 700,
@@ -49,9 +66,10 @@ function Mascot({index, color}: { index: number, color: string }) {
         '--scale': randomBetween(.8, 1),
     }
     const el = useRef<HTMLDivElement>(null)
-    const img = index % 4 ? 1 : 2
+    const img = getMascot(index)
+    // The second mascot can emit confettis
     useEffect(() => {
-        if (img === 1) {
+        if (img === 2) {
             return;
         }
         const interval = setInterval(() => {
