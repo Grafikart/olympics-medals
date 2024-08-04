@@ -1,8 +1,8 @@
-import {render} from "preact";
+import { render } from "preact";
 import "./reset.css";
 import "./main.css";
 import continents from "./continents.json";
-import {useIncrementalNumber} from "./hooks/useIncrementalNumber.ts";
+import { useIncrementalNumber } from "./hooks/useIncrementalNumber.ts";
 
 type ItemOf<T> = T extends (infer U)[] ? U : never;
 type Continent = ItemOf<typeof continents>;
@@ -49,10 +49,10 @@ function Ring({
     "--color": `var(--ring${index + 1})`,
   };
   const count = useIncrementalNumber(total, 700, 1000);
-  const callMascots = (e: PointerEvent & {currentTarget: HTMLElement}) => {
+  const callMascots = (e: PointerEvent & { currentTarget: HTMLElement }) => {
     const target = e.currentTarget;
-    import('./easteregg.tsx').then(m => m.callMascots(target))
-  }
+    import("./easteregg.tsx").then((m) => m.callMascots(target));
+  };
   return (
     <article className="continent" style={style} onClick={callMascots}>
       <header>
@@ -76,7 +76,10 @@ function Ring({
 function Medal({ type, count }: { type: string; count: number }) {
   const animatedCount = useIncrementalNumber(count, 700, 1000);
   return (
-    <li className={"continent__medal " + type.toLowerCase()} aria-label={`${type} medals`}>
+    <li
+      className={"continent__medal " + type.toLowerCase()}
+      aria-label={`${type} medals`}
+    >
       {animatedCount}
     </li>
   );

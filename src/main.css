@@ -1,388 +1,384 @@
 :root {
-    --text: #000;
-    --card-bg: #FFF;
-    --text-light: rgba(102, 103, 99, 0.8);
-    /* Olympic guideline says : Ring radius = 12 x stroke width - source : https://stillmed.olympics.com/media/Documents/International-Olympic-Committee/Olympic-brand/Olympic-Brand-Guidelines.pdf */
-    --stroke: 1.4rem;
-    --ring1: #0078D0;
-    --ring2: #FFB114;
-    --ring3: #000000;
-    --ring4: #00A651;
-    --ring5: #F0282D;
+  --text: #000;
+  --card-bg: #fff;
+  --text-light: rgba(102, 103, 99, 0.8);
+  /* Olympic guideline says : Ring radius = 12 x stroke width - source : https://stillmed.olympics.com/media/Documents/International-Olympic-Committee/Olympic-brand/Olympic-Brand-Guidelines.pdf */
+  --stroke: 1.4rem;
+  --ring1: #0078d0;
+  --ring2: #ffb114;
+  --ring3: #000000;
+  --ring4: #00a651;
+  --ring5: #f0282d;
 }
 
 .cloak {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-html, body {
-    font-family: "Manrope", sans-serif;
-    min-height: 100vh;
-    font-weight: 500;
-    color: var(--text);
+html,
+body {
+  font-family: "Manrope", sans-serif;
+  min-height: 100vh;
+  font-weight: 500;
+  color: var(--text);
 }
 
 body {
-    overflow: hidden;
-    background:
-            linear-gradient(
-                    rgba(0, 0, 0, .65),
-                    rgba(0, 0, 0, .65)
-            ),
-            url(./images/poster.jpg) center center / cover no-repeat,
-            linear-gradient(135deg,#9bc8c5, #f6ead2,#a2deaa);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url(./images/poster.jpg) center center / cover no-repeat,
+    linear-gradient(135deg, #9bc8c5, #f6ead2, #a2deaa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 a {
-    text-decoration: underline;
-    transition: .3s;
+  text-decoration: underline;
+  transition: 0.3s;
 }
 
 a:hover {
-    color: #000;
+  color: #000;
 }
 
 aside {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .card {
-    gap: 1rem;
-    padding: 1rem;
-    background: #FFF;
-    width: calc(100% - 5rem);
-    max-width: 1440px;
-    height: calc(100vh - 2rem);
-    max-height: 770px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    /* https://shadows.brumm.af/ */
-    box-shadow:
-            0px 0px 1.3px rgba(0, 0, 0, 0.024),
-            0px 0px 3.6px rgba(0, 0, 0, 0.035),
-            0px 0px 8.7px rgba(0, 0, 0, 0.046),
-            0px 0px 29px rgba(0, 0, 0, 0.07)
-    ;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  width: calc(100% - 5rem);
+  max-width: 1440px;
+  height: calc(100vh - 2rem);
+  max-height: 770px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* https://shadows.brumm.af/ */
+  box-shadow:
+    0px 0px 1.3px rgba(0, 0, 0, 0.024),
+    0px 0px 3.6px rgba(0, 0, 0, 0.035),
+    0px 0px 8.7px rgba(0, 0, 0, 0.046),
+    0px 0px 29px rgba(0, 0, 0, 0.07);
 }
 
 .methodology {
-    font-size: .8em;
+  font-size: 0.8em;
 }
 
 /** Continents **/
 .continents {
-    display: grid;
-    grid-template-columns: repeat(3, calc(12 * var(--stroke)));
-    align-items: flex-start;
-    justify-content: center;
-    gap: calc(var(--stroke));
+  display: grid;
+  grid-template-columns: repeat(3, calc(12 * var(--stroke)));
+  align-items: flex-start;
+  justify-content: center;
+  gap: calc(var(--stroke));
 }
 
 .continent {
-    width: calc(12 * var(--stroke));
-    display: flex;
-    flex-direction: column;
-    grid-row: 1/ span 1;
-    grid-column: 1 / span 1;
-    gap: 1.5rem;
-    --header-offset: calc(1.5rem + 52px);
-    color: var(--color);
+  width: calc(12 * var(--stroke));
+  display: flex;
+  flex-direction: column;
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  gap: 1.5rem;
+  --header-offset: calc(1.5rem + 52px);
+  color: var(--color);
 }
 
 .continent header {
-    height: 52px;
-    display: flex;
-    flex-direction: column;
-    gap: .35rem;
+  height: 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 /* Offset the second and 4th ring to the bottom */
 .continent:nth-child(2),
-.continent:nth-child(4){
-    margin-top: calc(var(--header-offset) + 5.5 * var(--stroke));
-    margin-left: calc(6.5 * var(--stroke));
-    flex-direction: column-reverse;
+.continent:nth-child(4) {
+  margin-top: calc(var(--header-offset) + 5.5 * var(--stroke));
+  margin-left: calc(6.5 * var(--stroke));
+  flex-direction: column-reverse;
 }
 
 .continent h2 {
-    color: var(--color);
-    font-weight: 400;
-    font-size: 1.4rem;
+  color: var(--color);
+  font-weight: 400;
+  font-size: 1.4rem;
 }
 
 .continent strong {
-    font-weight: 600  ;
+  font-weight: 600;
 }
 
 .continent__medals {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    color: var(--text);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text);
 }
 
 .continent__medal {
-    display: flex;
-    align-items: center;
-    gap: .5em;
-    font-size: .7rem;
-    font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.7rem;
+  font-weight: 600;
 }
 
 .continent li::before {
-    width: 10px;
-    height: 10px;
-    content:'';
-    display: block;
-    border-radius: 100%;
-    background: linear-gradient(to bottom, var(--medal-start), var(--medal-end));
-    box-shadow: inset 0 -1px 2px var(--medal-shadow);
+  width: 10px;
+  height: 10px;
+  content: "";
+  display: block;
+  border-radius: 100%;
+  background: linear-gradient(to bottom, var(--medal-start), var(--medal-end));
+  box-shadow: inset 0 -1px 2px var(--medal-shadow);
 }
 
 .gold {
-    --medal-start: #fdf5c3;
-    --medal-end: #fbe334;
-    --medal-shadow: #dac215;
+  --medal-start: #fdf5c3;
+  --medal-end: #fbe334;
+  --medal-shadow: #dac215;
 }
 
 .silver {
-    --medal-start: #f3f0f0;
-    --medal-end: #d2cdca;
-    --medal-shadow: #a4a09d;
+  --medal-start: #f3f0f0;
+  --medal-end: #d2cdca;
+  --medal-shadow: #a4a09d;
 }
 
 .bronze {
-    --medal-start: #fce7bd;
-    --medal-end: #fa9e1b;
-    --medal-shadow: #d6830d;
+  --medal-start: #fce7bd;
+  --medal-end: #fa9e1b;
+  --medal-shadow: #d6830d;
 }
 
 .ring {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1;
-    border-radius: 100%;
-    position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  position: relative;
 }
 
 .ring::before,
 .ring::after {
-    content: '';
-    display: block;
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    color: var(--color);
-    border: calc(2px + var(--stroke) * var(--ratio) * 1.5) solid var(--color);
-    animation: border 1s;
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  color: var(--color);
+  border: calc(2px + var(--stroke) * var(--ratio) * 1.5) solid var(--color);
+  animation: border 1s;
 }
 
 .ring::after {
-    border-color: transparent;
+  border-color: transparent;
 }
 
 /* Chain overlap */
 .continent:nth-child(1) .ring::after {
-    border-right-color: var(--color);
-    z-index: 6;
+  border-right-color: var(--color);
+  z-index: 6;
 }
 
 .continent:nth-child(2) .ring::after {
-    border-top-color: var(--color);
-    z-index: 5;
+  border-top-color: var(--color);
+  z-index: 5;
 }
 
 .continent:nth-child(3) .ring::before {
-    border-top-color: var(--color);
-    z-index: 4;
+  border-top-color: var(--color);
+  z-index: 4;
 }
 
 .continent:nth-child(4) .ring::before {
-    z-index: 2;
+  z-index: 2;
 }
 
 .continent:nth-child(4) .ring::after {
-    border-left-color: var(--color);
-    z-index: 5;
+  border-left-color: var(--color);
+  z-index: 5;
 }
 
 .continent:nth-child(5) .ring::after {
-    border-bottom-color: var(--color);
-    z-index: 6;
+  border-bottom-color: var(--color);
+  z-index: 6;
 }
 
 /* Animation */
 .card {
-    overflow: hidden;
-    animation: cardIn .8s both cubic-bezier(.56,1.57,.56,1);
+  overflow: hidden;
+  animation: cardIn 0.8s both cubic-bezier(0.56, 1.57, 0.56, 1);
 }
 
 .card::before {
-    content:'';
-    position: absolute;
-    inset: 0;
-    background: url(./images/paris-horizon.jpg) left bottom no-repeat ;
-    animation: cardBg .7s 1s both ease-out ;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(./images/paris-horizon.jpg) left bottom no-repeat;
+  animation: cardBg 0.7s 1s both ease-out;
 }
 
 @keyframes cardIn {
-    0% {
-        opacity: 0;
-        transform: scale(.7);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
 }
 
 @keyframes cardBg {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
 }
 
 @keyframes cardInMobile {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
 }
 
 .card > * {
-    animation: cardContentIn 1s both cubic-bezier(.49,1.67,.26,.92);
-    animation-delay: calc(.4s + .2s * var(--index, 0));
+  animation: cardContentIn 1s both cubic-bezier(0.49, 1.67, 0.26, 0.92);
+  animation-delay: calc(0.4s + 0.2s * var(--index, 0));
 }
 
 @keyframes cardContentIn {
-    0% {
-        transform: translateY(40px);
-        opacity: 0;
-    }
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
 }
 
 .ring::before,
 .ring::after {
-    animation:
-            ringStroke .7s calc(.8s + .2s * var(--index)) cubic-bezier(.49,1.67,.26,.92) both,
-            ringIn .7s  calc(.7s + .2s * var(--index)) cubic-bezier(.49,1.67,.26,.92) both;
+  animation:
+    ringStroke 0.7s calc(0.8s + 0.2s * var(--index))
+      cubic-bezier(0.49, 1.67, 0.26, 0.92) both,
+    ringIn 0.7s calc(0.7s + 0.2s * var(--index))
+      cubic-bezier(0.49, 1.67, 0.26, 0.92) both;
 }
 
 @keyframes ringStroke {
-    0% {
-        border-width: var(--stroke);
-    }
+  0% {
+    border-width: var(--stroke);
+  }
 }
 
 @keyframes ringIn {
-    0% {
-        transform: scale(0) translateY(40px);
-
-    }
+  0% {
+    transform: scale(0) translateY(40px);
+  }
 }
 
 /** Responsive **/
 @media (max-width: 1200px) {
-    .card {
-        width: calc(100% - 2rem);
-    }
+  .card {
+    width: calc(100% - 2rem);
+  }
 }
 
 @media (max-width: 950px) {
-    :root {
-        /* Why 38 ? graph width = (12 * stroke) * 3 + 2 */
-        --stroke: calc((100vw - 6rem) / 38);
-    }
+  :root {
+    /* Why 38 ? graph width = (12 * stroke) * 3 + 2 */
+    --stroke: calc((100vw - 6rem) / 38);
+  }
 }
 
 @media (max-height: 700px) {
-    :root {
-        --stroke: 1rem;
-    }
+  :root {
+    --stroke: 1rem;
+  }
 }
 
 /* Screen is too narrow, we need a scrollbar */
 @media (max-height: 600px) {
-    body {
-        overflow-y: scroll;
-    }
-    .card {
-        padding: 1rem;
-        margin-block: 1rem;
-        height: auto;
-    }
+  body {
+    overflow-y: scroll;
+  }
+  .card {
+    padding: 1rem;
+    margin-block: 1rem;
+    height: auto;
+  }
 }
 
 /* Mobile layout */
 @media (max-width: 620px) {
-    :root {
-        --stroke: min(calc((100vw - 4rem) / 12), 1.2rem);
-    }
-    body {
-        overflow-y: auto;
-        overflow-x: hidden;
-        background:
-                linear-gradient(
-                        rgba(0, 0, 0, .65),
-                        rgba(0, 0, 0, .65)
-                ),
-                url(./images/poster-mobile.jpg) center center / cover no-repeat,
-                linear-gradient(135deg,#9bc8c5, #f6ead2,#a2deaa);
-    }
-    .card {
-        gap: 3rem;
-        padding: 0;
-        margin-block: 1rem;
-        padding-block: 2rem;
-        max-height: none;
-        height: auto;
-        animation-name: cardInMobile;
-    }
-    h1, aside {
-        padding-inline: 1rem;
-    }
-    h1 {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-    .graph {
-        overflow-y: hidden;
-        overflow-x: scroll;
-        scroll-snap-type: x proximity;
-    }
-    .continents {
-        margin-inline: 1rem;
-        margin-bottom: 1rem;
-        width: calc(38 * var(--stroke));
-    }
-    .continent {
-        scroll-snap-align: center;
-    }
+  :root {
+    --stroke: min(calc((100vw - 4rem) / 12), 1.2rem);
+  }
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+      url(./images/poster-mobile.jpg) center center / cover no-repeat,
+      linear-gradient(135deg, #9bc8c5, #f6ead2, #a2deaa);
+  }
+  .card {
+    gap: 3rem;
+    padding: 0;
+    margin-block: 1rem;
+    padding-block: 2rem;
+    max-height: none;
+    height: auto;
+    animation-name: cardInMobile;
+  }
+  h1,
+  aside {
+    padding-inline: 1rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .graph {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-snap-type: x proximity;
+  }
+  .continents {
+    margin-inline: 1rem;
+    margin-bottom: 1rem;
+    width: calc(38 * var(--stroke));
+  }
+  .continent {
+    scroll-snap-align: center;
+  }
 }
 
 ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
-    padding: 1px;
+  background: transparent;
+  padding: 1px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #dadada;
-    border-radius: 4px;
+  background: #dadada;
+  border-radius: 4px;
 }
