@@ -12,16 +12,20 @@
     --walk-bouncing-delay: 0;
     /* Delay before starting crossing the screen  */
     --walk-cross-offset: 0;
+    /* How much a group can spread */
+    --spread: 800px;
+    /* Mascot size */
     --scale: 1;
 }
 
 .mascot {
     position: absolute;
     top: 0;
-    left: 0;
+    left: calc(var(--walk-cross-offset) * var(--spread) * -1);
     display: block;
     transform-origin: left bottom;
-    animation: mascotX calc(7s * var(--walk-duration)) calc(-4s * var(--walk-cross-offset)) linear both;
+    animation: mascotX calc(7s * var(--walk-duration)) linear both;
+    --scale: calc(var(--scale-ratio) * 0.2 + 0.8)
 }
 
 .mascots img {
@@ -50,6 +54,6 @@
         transform: translateX(-110%) scale(var(--scale));
     }
     100% {
-        transform: translateX(calc(100vw + 10%))scale(var(--scale));
+        transform: translateX(calc(100vw + 10% + var(--spread))) scale(var(--scale));
     }
 }
