@@ -95,6 +95,6 @@ function Mascot({color, index}: { index: number, color: string }) {
         }
     }, []);
     return <div className="mascot" style={style} ref={el}>
-        <img src={`/mascot${img}.png`}/>
+        <img src={`./mascot${img}.png`}/>
     </div>
 }
