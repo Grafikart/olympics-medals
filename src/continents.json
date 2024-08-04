@@ -1,31 +1,31 @@
 [
   {
     "name": "Europe",
-    "gold": 55,
-    "bronze": 54,
-    "silver": 68,
-    "total": 177
+    "gold": 62,
+    "bronze": 57,
+    "silver": 71,
+    "total": 190
   },
   {
     "name": "Asia",
-    "gold": 38,
-    "bronze": 30,
-    "silver": 35,
-    "total": 103
+    "gold": 40,
+    "bronze": 35,
+    "silver": 39,
+    "total": 114
   },
   {
     "name": "America",
-    "gold": 17,
-    "bronze": 28,
-    "silver": 29,
-    "total": 74
+    "gold": 24,
+    "bronze": 35,
+    "silver": 39,
+    "total": 98
   },
   {
     "name": "Oceania",
     "gold": 14,
-    "bronze": 12,
-    "silver": 6,
-    "total": 32
+    "bronze": 13,
+    "silver": 8,
+    "total": 35
   },
   {
     "name": "Africa",

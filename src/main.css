@@ -1,7 +1,7 @@
 :root {
-    --color: #000;
+    --text: #000;
     --card-bg: #FFF;
-    --colorlight: rgba(102, 103, 99, 0.8);
+    --text-light: rgba(102, 103, 99, 0.8);
     /* Olympic guideline says : Ring radius = 12 x stroke width - source : https://stillmed.olympics.com/media/Documents/International-Olympic-Committee/Olympic-brand/Olympic-Brand-Guidelines.pdf */
     --stroke: 1.4rem;
     --ring1: #0078D0;
@@ -19,7 +19,7 @@ html, body {
     font-family: "Manrope", sans-serif;
     min-height: 100vh;
     font-weight: 500;
-    color: var(--color);
+    color: var(--text);
 }
 
 body {
@@ -51,7 +51,7 @@ a:hover {
 }
 
 aside {
-    color: var(--colorlight);
+    color: var(--text-light);
     font-size: 0.9rem;
     display: flex;
     flex-direction: column;
@@ -86,6 +86,7 @@ aside {
 .continents {
     display: grid;
     grid-template-columns: repeat(3, calc(12 * var(--stroke)));
+    align-items: flex-start;
     justify-content: center;
     gap: calc(var(--stroke));
 }
@@ -98,6 +99,7 @@ aside {
     grid-column: 1 / span 1;
     gap: 1.5rem;
     --header-offset: calc(1.5rem + 52px);
+    color: var(--color);
 }
 
 .continent header {
@@ -125,13 +127,14 @@ aside {
     font-weight: 600  ;
 }
 
-.continent ul {
+.continent__medals {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    color: var(--text);
 }
 
-.continent li {
+.continent__medal {
     display: flex;
     align-items: center;
     gap: .5em;
@@ -279,7 +282,7 @@ aside {
 
 @keyframes ringStroke {
     0% {
-        border: var(--stroke) solid var(--color);
+        border-width: var(--stroke);
     }
 }
 

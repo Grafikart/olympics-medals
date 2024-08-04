@@ -37,3 +37,7 @@ Côté CSS, j'ai décidé de faire les anneaux en utilisant des divs pour faire 
 - [Générateur de box-shadow](https://shadows.brumm.af/)
 - [Générateur de courbe de béziers](https://cubic-bezier.com/#.49,1.67,.26,.92)
 - [Photopea (pour créer l'image en noir & blanc)](https://www.photopea.com/)
+
+## Easter Egg
+
+Un easter egg est caché lors du clic sur un des continent. On peut cliquer sur plusieurs continents rapidement pour plus d'ambiances.
