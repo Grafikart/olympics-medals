@@ -7,24 +7,26 @@
   overflow: hidden;
   pointer-events: none;
   /* Ratio (based on window width) to cross the screen  */
-  --walk-duration: 1;
+  --walk-width: 1;
   /* Delay for the bobbling effect  */
   --walk-bouncing-delay: 0;
   /* Delay before starting crossing the screen  */
   --walk-cross-offset: 0;
   /* How much a group can spread */
-  --spread: 800px;
+  --spread: 800;
   /* Mascot size */
   --scale: 1;
 }
 
 .mascot {
+  /* Speed of mascot is 7s for 1000px */
+  --walk-duration: calc(7s * ((var(--walk-width) + var(--spread)) / 1000));
   position: absolute;
   top: 0;
-  left: calc(var(--walk-cross-offset) * var(--spread) * -1);
+  left: calc(var(--walk-cross-offset) * var(--spread) * -1px);
   display: block;
   transform-origin: left bottom;
-  animation: mascotX calc(7s * var(--walk-duration)) linear both;
+  animation: mascotX var(--walk-duration) linear both;
   --scale: calc(var(--scale-ratio) * 0.2 + 0.8);
 }
 
@@ -54,6 +56,7 @@
     transform: translateX(-110%) scale(var(--scale));
   }
   100% {
-    transform: translateX(calc(100vw + 10% + var(--spread))) scale(var(--scale));
+    transform: translateX(calc(100vw + 10% + var(--spread) * 1px))
+      scale(var(--scale));
   }
 }

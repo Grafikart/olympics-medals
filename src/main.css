@@ -186,7 +186,6 @@ aside {
   border-radius: 100%;
   color: var(--color);
   border: calc(2px + var(--stroke) * var(--ratio) * 1.5) solid var(--color);
-  animation: border 1s;
 }
 
 .ring::after {
@@ -234,7 +233,7 @@ aside {
   position: absolute;
   inset: 0;
   background: url(./images/paris-horizon.jpg) left bottom no-repeat;
-  animation: cardBg 0.7s 1s both ease-out;
+  animation: cardBg 0.7s 1s both cubic-bezier(0.31, 0.57, 0.48, 1);
 }
 
 @keyframes cardIn {

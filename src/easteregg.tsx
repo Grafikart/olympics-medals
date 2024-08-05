@@ -5,6 +5,7 @@ import { useWindowWidth } from "./hooks/useWindowWidth.ts";
 import { randomBetween } from "./functions/number.ts";
 import confetti from "canvas-confetti";
 import { rgbToHex } from "./functions/color.ts";
+import { useComputed } from "@preact/signals";
 
 /**
  * Make mascots mascot cross the screen
@@ -63,12 +64,10 @@ function getMascot(index: number): number {
 
 function Mascot({ color, index }: { index: number; color: string }) {
   const width = useWindowWidth();
-  const style = {
-    "--walk-duration": width.value / 700,
-    "--walk-bouncing-delay": randomBetween(-2, 0),
-    "--walk-cross-offset": randomBetween(0, 1),
-    "--scale-ratio": randomBetween(0, 1),
-  };
+  const style = useComputed(
+    () =>
+      `--walk-width: ${width.value};--walk-bouncing-delay: ${randomBetween(-2, 0)};--walk-cross-offset: ${randomBetween(0, 1)};--scale-ratio: ${randomBetween(0, 1)};`,
+  );
   const el = useRef<HTMLDivElement>(null);
   const img = getMascot(index);
 
