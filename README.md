@@ -40,6 +40,10 @@ Côté CSS, j'ai décidé de faire les anneaux en utilisant des divs pour faire 
 - [Générateur de courbe de béziers](https://cubic-bezier.com/#.49,1.67,.26,.92)
 - [Photopea (pour créer l'image en noir & blanc)](https://www.photopea.com/)
 
+## Explications vidéo
+
+[![Explication vidéo du code](http://img.youtube.com/vi/zw_Z0CuYOV8/0.jpg)](http://www.youtube.com/watch?v=zw_Z0CuYOV8)
+
 ## Easter Egg
 
 Un easter egg est caché lors du clic sur un des continent. On peut cliquer sur plusieurs continents rapidement pour plus d'ambiances.
