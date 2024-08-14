@@ -7,7 +7,7 @@
     "dev": "vite",
     "format": "prettier \"**/*.(ts|tsx|js|css|json|html)\" --write",
     "check": "tsc -b",
-    "build": "tsc -b && node ./src/tools/fetcher.js && vite build",
+    "build": "tsc -b && vite build",
     "preview": "vite preview",
     "fetch": "node ./src/tools/fetcher.js"
   },

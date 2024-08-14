@@ -1,3 +1,5 @@
+@import "./reset.css";
+
 :root {
   --text: #000;
   --card-bg: #fff;
@@ -27,7 +29,7 @@ body {
   overflow: hidden;
   background:
     linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-    url(./images/poster.jpg) center center / cover no-repeat,
+    url(../images/poster.jpg) center center / cover no-repeat,
     linear-gradient(135deg, #9bc8c5, #f6ead2, #a2deaa);
   display: flex;
   align-items: center;
@@ -93,7 +95,7 @@ aside {
   display: flex;
   flex-direction: column;
   grid-row: 1 / span 1;
-  grid-column: 1 / span 1;
+  grid-column: calc(round(down, var(--index) / 2) + 1) / span 1;
   gap: 1.5rem;
   --header-offset: calc(1.5rem + 52px);
   color: var(--color);
@@ -232,7 +234,7 @@ aside {
   content: "";
   position: absolute;
   inset: 0;
-  background: url(./images/paris-horizon.jpg) left bottom no-repeat;
+  background: url(../images/paris-horizon.jpg) left bottom no-repeat;
   animation: cardBg 0.7s 1s both cubic-bezier(0.31, 0.57, 0.48, 1);
 }
 
@@ -332,7 +334,7 @@ aside {
     overflow-x: hidden;
     background:
       linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-      url(./images/poster-mobile.jpg) center center / cover no-repeat,
+      url(../images/poster-mobile.jpg) center center / cover no-repeat,
       linear-gradient(135deg, #9bc8c5, #f6ead2, #a2deaa);
   }
   .card {

@@ -1,4 +1,4 @@
-import "./mascots.css";
+import "./css/mascots.css";
 import { render } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 import { useWindowWidth } from "./hooks/useWindowWidth.ts";

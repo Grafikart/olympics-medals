@@ -1,6 +1,5 @@
 import { render } from "preact";
-import "./reset.css";
-import "./main.css";
+import "./css/main.css";
 import continents from "./continents.json";
 import { useIncrementalNumber } from "./hooks/useIncrementalNumber.ts";
 
@@ -43,7 +42,6 @@ function Ring({
 }) {
   const ratio = total / max;
   const style = {
-    gridColumnStart: Math.floor(index / 2) + 1,
     "--index": index,
     "--ratio": ratio,
     "--color": `var(--ring${index + 1})`,
